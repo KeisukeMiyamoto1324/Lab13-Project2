@@ -2,19 +2,21 @@ from PIL import Image
 import os
 
 class ImageEditer:
-    def open(self, paths: str) -> Image:
+    def open(self, path: str) -> Image:
         """
         Method to open image file
         
         :param path: where the image is
         
         :return: opened image
+        
+        :raise e: error happenned during processing
         """
-        if not isinstance(paths, list):
-            paths = [paths]
-        results = [Image.open(path) for path in paths]
-
-        return results if len(paths)!=1 else results[0]
+        try:
+            results = Image.open(path)
+            return results
+        except Exception as e:
+            raise e
     
     def save(self, image: Image, path: str) -> None:
         """
@@ -30,9 +32,14 @@ class ImageEditer:
         Method to delete image
         
         :param path: path to the image to be removed
+        
+        :raise e: error happenned during processing
         """
-        os.remove(path)
-    
+        try:
+            os.remove(path)
+        except Exception as e:
+            raise e
+        
     def resizeByWidth(self, image: Image.Image, width: int) -> Image.Image:
         """
         Method to resize an image to a specified width while preserving the aspect ratio
