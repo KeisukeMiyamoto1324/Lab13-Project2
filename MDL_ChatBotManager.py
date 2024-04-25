@@ -1,7 +1,7 @@
 from FARM_ChatGPT import *
 import csv
 import base64
-from MDL_ImageEditer import *
+from MDL_ImageEditor import *
 
 class ChatBotManager:
     def __init__(self, systemRole: str='You are helpful assistant.') -> None:

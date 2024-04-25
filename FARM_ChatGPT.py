@@ -20,7 +20,6 @@ class ChatGPT:
         self.apiKey = apiKey
         self.chatgpt.chat
         self.chatgpt.api_key = apiKey
-        # openai.api_key = apiKey
         
     def clearConversation(self) -> None:
         """
