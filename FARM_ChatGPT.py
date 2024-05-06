@@ -1,5 +1,6 @@
 from openai import OpenAI
 import base64
+import json
 
 class ChatGPT:
     def __init__(self) -> None:
@@ -98,4 +99,4 @@ class ChatGPT:
                 self.setMessage('assistant', chat.choices[0].message.content)
                 return chat.choices[0].message.content
             except Exception as e:
-                raise e
+                return f'Error happened during API call\n{str(e)}'
